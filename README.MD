@@ -46,10 +46,14 @@ Darker Tones: `ndanger`, `ninfo`, `ngray`
 
 ```
 <div class="row">
-
-    <div class="column-3 ndanger-li">test</div>
-    <div class="column-3 ngray">test 2</div>
-    <div class="column-3 ninfo-li">test 3</div>
-
+    <div class="column-3 ndanger-li">
+        Column 1
+    </div>
+    <div class="column-3 ngray">
+        Column 2
+    </div>
+    <div class="column-3 ninfo-li">
+        Column 3
+    </div>
 </div>
 ```
