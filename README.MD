@@ -1,11 +1,11 @@
 ![alt text](gridzy.png)
 
 # Grid like a bear with Gridzy.
-Simple CSS Grid for Quick-Projects.
+Super Fresh & LightWeight CSS Grid Powered By CSS3. To produce the Stylesheets we used SaSS, along with Compass and Grunt.
 
 ### Install
-- Download CSS file from src (gridzy.min.css)
-- Include it into your project `<link rel="stylesheet" href="src/gridzy.min.css">`
+- Download/Clone Project and make sure to upload `src/gridzy.min.css` on your project dependency folder.
+- Include it on your html `<head>` by adding `<link rel="stylesheet" href="src/gridzy.min.css">`
 
 ### Usage
 - Range of Columns from 1 to 12.
