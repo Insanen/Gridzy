@@ -1,0 +1,33 @@
+{
+  "name": "grid-zy",
+  "version": "1.2.0",
+  "description": "Grid like a bear with Gridzy.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/misterzik/Gridzy.git"
+  },
+  "keywords": [
+    "grids",
+    "gridzy",
+    "lightweight",
+    "grids"
+  ],
+  "author": "MisterZik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/misterzik/Gridzy/issues"
+  },
+  "homepage": "https://github.com/misterzik/Gridzy#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-compass": "^1.1.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "lite-server": "^2.2.2"
+  }
+}

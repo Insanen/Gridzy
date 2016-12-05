@@ -1,0 +1,5 @@
+{
+  "port": 8000,
+  "files": ["./demo/index.{html,htm,css,js}"],
+  "server": { "baseDir": "./demo" }
+}

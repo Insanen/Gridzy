@@ -1,0 +1,165 @@
+/*
+ *  Mixin's - Insanen.com 
+ */
+
+@mixin border-box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+@mixin full-block() {
+  display: block;
+  width: 100%;
+}
+
+/*
+ * Clearfix and Spacing - Insanen.com
+ */
+
+%clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    @include border-box;
+}
+
+
+/*
+ *  Grid variables - Insanen.com 
+ */
+
+$grid-columns: 12;
+$grid-max-width: 100%;
+
+/*
+ * BreakPoints
+ */
+
+$breakpoint-small: "only screen and (min-width: 20em)";
+$breakpoint-medium: "only screen and (min-width: 30em)";
+
+/*
+ * Base Pallete Colors - Insanen.com
+ */
+
+$base-color-danger: adjust_hue(desaturate(darken(#ff0000, 10), 8), 0);
+$base-color-danger-light: adjust_hue(desaturate(lighten(#ff0000, 14), 8), 0);
+$base-color-info: desaturate(darken(#0000ff, 12), 34);
+$base-color-info-light: lighten(#0000ff, 12);
+$base-color-gray: adjust_hue(darken(#dcdcdc, 7), 0);
+$base-color-gray-light: adjust_hue(lighten(#dcdcdc, 5), 0);
+
+.ndanger {
+  background: $base-color-danger;
+}
+
+.ndanger-li {
+  background: $base-color-danger-light;
+}
+
+.ninfo {
+  background: $base-color-info;
+}
+
+.ninfo-li {
+  background: $base-color-info-light;
+}
+
+.ngray {
+  background:  $base-color-gray;
+}
+
+.ngray {
+  background:  $base-color-gray-light;
+}
+
+/*
+ * HTML Container's & Markdown's
+ */
+
+$container-width: 100%;
+
+.container {
+    @include center-block;
+}
+
+.container-full {
+    @include full-block;
+}
+
+.container-full .wrapper {
+    width: $container-width;
+}
+
+/*
+ * Image Markup, Erase if conflicting, with site.
+ */
+img {
+    width: auto;
+    max-width: 100%;
+    height: auto !important;
+}
+
+/*
+ * Wrapper's
+ */
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+.wrapper,
+.row {
+    @extend %clearfix;
+}
+
+[class*='column-'] {
+    float: left;
+    padding: 1em;
+    width: 100%;
+    min-height: 1px;
+}
+
+[class*='gridzy-'] {
+    float: left;
+    padding: 1em;
+    width: 100%;
+    min-height: 1px;
+}
+
+/*
+ * Mobile View - Insanen.com
+ */
+
+@media #{$breakpoint-medium} {
+    .wrapper {
+        width: 95%;
+        max-width: $grid-max-width;
+    }
+    @for $i from 1 through $grid-columns {
+        .column-#{$i} {
+            width: 100% / $grid-columns * $i;
+        }
+    }
+}
