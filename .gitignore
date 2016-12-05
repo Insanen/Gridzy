@@ -1,11 +1,3 @@
-/sass/*
 /node_modules/*
 /.sass-cache/*
-/stylesheets/*
 config.rb
-Gruntfile.js
-package.json
-index.html
-/src/ie.min.css
-/src/print.min.css
-/src/screen.min.css
