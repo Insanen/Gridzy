@@ -1,24 +1,22 @@
 {
-  "name": "grid-zy",
-  "version": "1.2.0",
-  "description": "Grid like a bear with Gridzy.",
-  "main": "index.js",
+  "name": "gridzy.scss",
+  "version": "2.0.0",
+  "description": "Grid it like a bear with Gridzy.",
+  "main": "gridzy.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "lite-server"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/misterzik/Gridzy.git"
-  },
+  "repository": "git+https://github.com/misterzik/Gridzy.git",
   "keywords": [
-    "grids",
+    "grid",
+    "grid column",
     "gridzy",
-    "lightweight",
-    "grids"
+    "grid lightweight",
+    "grids open-source"
   ],
   "author": "MisterZik",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/misterzik/Gridzy/issues"
   },
