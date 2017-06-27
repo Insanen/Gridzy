@@ -1,156 +1,235 @@
 /*
- *  Mixin's - Insanen.com 
+--
+
+      ___           ___
+     /__/\         /  /\
+    |  |::\       /  /::|
+    |  |:|:\     /  /:/:|
+  __|__|:|\:\   /  /:/|:|__
+ /__/::::| \:\ /__/:/ |:| /\
+ \  \:\~~\__\/ \__\/  |:|/:/
+  \  \:\           |  |:/:/
+   \  \:\          |  |::/
+    \  \:\         |  |:/
+     \__\/         |__|/ik.
+
+* Permission is hereby granted, free of charge, to any person
+* obtaining a copy of this software and associated documentation
+* files (the "Software")...
+* https://en.wikipedia.org/wiki/MIT_License
+--
+*/
+/*
+ * Border Boxing Over All rules.
  */
-
 @mixin border-box {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-
+/*
+ * Functions to Align Gridzy Wrappers
+ */
 @mixin center-block() {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 60%;
 }
-
 @mixin full-block() {
   display: block;
   width: 100%;
 }
-
+@import "_gridzy_settings";
 /*
- * Clearfix and Spacing - Insanen.com
+ * Global Gridzy Rule Set's.
+ * Can't Touch This! na na ... MC-Hammer
  */
+* {
+  margin: 0;
+  padding: 0;
+  @include border-box;
 
-%clearfix {
-    *zoom: 1;
-    &:before,
-    &:after {
-        content: " ";
-        display: table;
-    }
-    &:after {
-        clear: both;
-    }
-}
-
-*,
-*:after,
-*:before {
-    margin: 0;
-    padding: 0;
+  &:after,
+  &:before {
     @include border-box;
+  }
 }
 
-
-/*
- *  Grid variables - Insanen.com 
- */
-
-$grid-columns: 12;
-$grid-max-width: 100%;
-
-/*
- * BreakPoints
- */
-
-$breakpoint-small: "only screen and (min-width: 20em)";
-$breakpoint-medium: "only screen and (min-width: 30em)";
-
-/*
- * Base Pallete Colors - Insanen.com
- */
-
-$base-color-danger: adjust_hue(desaturate(darken(#ff0000, 10), 8), 0);
-$base-color-danger-light: adjust_hue(desaturate(lighten(#ff0000, 14), 8), 0);
-$base-color-info: desaturate(darken(#0000ff, 12), 34);
-$base-color-info-light: lighten(#0000ff, 12);
-$base-color-gray: adjust_hue(darken(#dcdcdc, 7), 0);
-$base-color-gray-light: adjust_hue(lighten(#dcdcdc, 5), 0);
-
-.ndanger {
-  background: $base-color-danger;
-}
-
-.ndanger-li {
-  background: $base-color-danger-light;
-}
-
-.ninfo {
-  background: $base-color-info;
-}
-
-.ninfo-li {
-  background: $base-color-info-light;
-}
-
-.ngray {
-  background:  $base-color-gray;
-}
-
-.ngray {
-  background:  $base-color-gray-light;
-}
-
-/*
- * HTML Container's & Markdown's
- */
-
-$container-width: 100%;
-
-.container {
-    @include center-block;
-}
-
-.container-full {
-    @include full-block;
-}
-
-.container-full .wrapper {
-    width: $container-width;
-}
-
-/*
- * Image Markup, Erase if conflicting, with site.
- */
 img {
-    width: auto;
-    max-width: 100%;
-    height: auto !important;
+  width: auto;
+  max-width: 100%;
+  height: auto !important;
+}
+// Wrappers & Containers Schema
+
+.grid-wrapper {
+  width: 100%;
+  margin: 0 auto;
 }
 
-/*
- * Wrapper's
- */
-
-.wrapper {
-    width: 100%;
-    margin: 0 auto;
+.grid-row,
+.grid-wrapper {
+  @extend %clearfix;
 }
-.wrapper,
-.row {
-    @extend %clearfix;
+
+.grid-container {
+  @include center-block;
+}
+
+.grid-container-full {
+  @include full-block;
+}
+
+.grid-container-full .grid-wrapper {
+  width: $container-width;
+}
+// Customizable Classes per Grid
+
+[class*='gridzy-'] {
+  float: left;
+  padding: 1em;
+  width: 100%;
+  min-height: 1px;
 }
 
 [class*='column-'] {
-    float: left;
-    padding: 1em;
-    width: 100%;
-    min-height: 1px;
+  float: left;
+  padding: 1em;
+  width: 100%;
+  min-height: 1px;
 }
+/*
+ * Respect The Gridzy spaceline!
+ */
+%clearfix {
+  *zoom: 1;
 
-[class*='gridzy-'] {
-    float: left;
-    padding: 1em;
-    width: 100%;
-    min-height: 1px;
+  &:after,
+  &:before {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+/*
+ * Gridzy Default Colors.
+ */
+$gridzy-color-key: 'base' !default;
+$gridzy-colors: ( 'primary': ( 'base': #db4437, 'light': #e67c73, 'dark': #c53929 ), 'accent': ( 'base': #f4b400, 'light': #f7cb4d, 'dark': #f09300 ), 'secondary': ( 'base': #4285f4, 'light': #7baaf7, 'dark': #3367d6 ), 'foreground': ( 'base': #f5f5f5, 'light': #e0e0e0, 'dark': #9e9e9e, 'darker': #616161 ), 'background': ( 'base': #dbdbdb, 'light': #bcbcbc, 'dark': #646464, 'darker': #3c3c3c ) );
+$gridzy-opacity: ( 'light': 0.8, 'dark': 0.4, );
+@function gridzy-colors( $name: 'primary', $variant: $gridzy-color-key, $opacity: 1 ) {
+  $color: null;
+  $color-spectrum: map-get($gridzy-colors, $name);
+  @if $color-spectrum {
+    $color: map-get($color-spectrum, $variant);
+  }
+  $alpha: if(type-of($opacity) == 'number', $opacity, map-get($gridzy-opacity, $opacity));
+  @if $alpha {
+    $color: rgba($color, $alpha);
+  }
+  @return $color;
+}
+$base-color-primary: gridzy-colors('primary');
+$base-color-primary-light: gridzy-colors('primary', 'light');
+$base-color-primary-dark: gridzy-colors('primary', 'dark');
+$base-color-accent: gridzy-colors('accent');
+$base-color-accent-light: gridzy-colors('accent', 'light');
+$base-color-accent-dark: gridzy-colors('accent', 'dark');
+$base-color-secondary: gridzy-colors('secondary');
+$base-color-secondary-light: gridzy-colors('secondary','light');
+$base-color-secondary-dark: gridzy-colors('secondary','dark');
+$base-color-foreground: gridzy-colors('foreground');
+$base-color-foreground-light: gridzy-colors('foreground','light');
+$base-color-foreground-dark: gridzy-colors('foreground','dark');
+$base-color-foreground-darker: gridzy-colors('foreground','darker');
+$base-color-background: gridzy-colors('background');
+$base-color-background-light: gridzy-colors('background','light');
+$base-color-background-dark: gridzy-colors('background','dark');
+$base-color-background-darker: gridzy-colors('background','darker');
+/*
+ * Gridzy Built-in Palette
+ */
+.grid-color {
+  &.primary {
+    background: $base-color-primary;
+  }
+
+  &.primary-light {
+    background: $base-color-primary-light;
+  }
+
+  &.primary-dark {
+    background: $base-color-primary-dark;
+  }
+
+  &.accent {
+    background: $base-color-accent;
+  }
+
+  &.accent-light {
+    background: $base-color-accent-light;
+  }
+
+  &.accent-dark {
+    background: $base-color-accent-dark;
+  }
+
+  &.secondary {
+    background: $base-color-secondary;
+  }
+
+  &.secondary-light {
+    background: $base-color-secondary-light;
+  }
+
+  &.secondary-dark {
+    background: $base-color-secondary-dark;
+  }
+
+  &.foreground {
+    background: $base-color-secondary;
+  }
+
+  &.foreground-light {
+    background: $base-color-foreground-light;
+  }
+
+  &.foreground-dark {
+    background: $base-color-foreground-dark;
+  }
+
+  &.foreground-darker {
+    background: $base-color-foreground-darker;
+  }
+
+  &.background {
+    background: $base-color-background-light;
+  }
+
+  &.background-light {
+    background: $base-color-background-light;
+  }
+
+  &.background-dark {
+    background: $base-color-background-light;
+  }
+
+  &.background-darker {
+    background: $base-color-background-light;
+  }
 }
 
 /*
- * Mobile View - Insanen.com
+ * Breakpoints For Mobile View
+ * & Desktop.
  */
+
+$breakpoint-small: "only screen and (min-width: 20em)";
+$breakpoint-medium: "only screen and (min-width: 32em)";
 
 @media #{$breakpoint-medium} {
     .wrapper {
@@ -162,4 +241,4 @@ img {
             width: 100% / $grid-columns * $i;
         }
     }
-}
+  }

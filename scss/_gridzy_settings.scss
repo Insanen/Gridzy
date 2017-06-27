@@ -1,0 +1,46 @@
+/*
+--
+
+      ___           ___
+     /__/\         /  /\
+    |  |::\       /  /::|
+    |  |:|:\     /  /:/:|
+  __|__|:|\:\   /  /:/|:|__
+ /__/::::| \:\ /__/:/ |:| /\
+ \  \:\~~\__\/ \__\/  |:|/:/
+  \  \:\           |  |:/:/
+   \  \:\          |  |::/
+    \  \:\         |  |:/
+     \__\/         |__|/ik.
+
+* Permission is hereby granted, free of charge, to any person
+* obtaining a copy of this software and associated documentation
+* files (the "Software")...
+* https://en.wikipedia.org/wiki/MIT_License
+--
+*/
+
+/*
+ * Gridzy Setting's for # of
+ * Columns to Use.
+ */
+
+$grid-columns: 12;
+$grid-max-width: 100%;
+$container-width: 100%;
+
+
+/*
+ * Gridzy Custom Colors.
+ */
+
+/*
+$base-color-danger: adjust_hue(desaturate(darken(#ff0000, 10), 8), 0);
+$base-color-danger-light: adjust_hue(desaturate(lighten(#ff0000, 14), 8), 0);
+$base-color-info: desaturate(darken(#0000ff, 12), 34);
+$base-color-info-light: lighten(#0000ff, 12);
+$base-color-gray: adjust_hue(darken(#dcdcdc, 7), 0);
+$base-color-gray-light: adjust_hue(lighten(#dcdcdc, 5), 0);
+
+$base-url: 'google.com' !default;
+*/
